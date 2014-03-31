@@ -1,0 +1,76 @@
+Running with 1 MPI task using Trilinos.
+Number of active cells: 768 (on 4 levels)
+Number of degrees of freedom: 13,920 (6,528+864+3,264+3,264)
+
+*** Timestep 0:  t=0 seconds
+   Solving temperature system... 0 iterations.
+   Solving composition system 1... 0 iterations.
+   Rebuilding Stokes preconditioner...
+   Solving Stokes system... 30+11 iterations.
+
+   Postprocessing:
+
+     Reference density (kg/m^3):                    3300
+     Reference gravity (m/s^2):                     9.80986
+     Reference thermal expansion (1/K):             4e-05
+     Temperature contrast across model domain (K): 0
+     Model domain depth (m):                        2.855e+06
+     Reference thermal diffusivity (m^2/s):         1.13939e-06
+     Reference viscosity (Pas):                     1e+22
+     Ra number:                                     0
+     k_value:                                       4.7
+     reference_cp:                                  1250
+     reference_thermal_diffusivity:                 1.13939e-06
+
+     Writing graphical output:           output-passive_comp/solution-00000
+     RMS, max velocity:                  5.11e-08 m/s, 6.29e-08 m/s
+     Temperature min/avg/max:            0 K, 0 K, 0 K
+     Heat fluxes through boundary parts: 0 W, 0 W
+     Writing depth average               output-passive_comp/depth_average.gnuplot
+
+*** Timestep 1:  t=2.81625e+12 seconds
+   Solving temperature system... 20 iterations.
+   Solving composition system 1... 18 iterations.
+   Rebuilding Stokes preconditioner...
+   Solving Stokes system... 0 iterations.
+
+   Postprocessing:
+     Writing graphical output:           output-passive_comp/solution-00001
+     RMS, max velocity:                  5.11e-08 m/s, 6.29e-08 m/s
+     Temperature min/avg/max:            0 K, 0.0004368 K, 0.002387 K
+     Heat fluxes through boundary parts: 0.2941 W, 0.8311 W
+     Writing depth average               output-passive_comp/depth_average.gnuplot
+
+*** Timestep 2:  t=5.6325e+12 seconds
+   Solving temperature system... 12 iterations.
+   Solving composition system 1... 19 iterations.
+   Rebuilding Stokes preconditioner...
+   Solving Stokes system... 0 iterations.
+
+   Postprocessing:
+     Writing graphical output:           output-passive_comp/solution-00002
+     RMS, max velocity:                  5.11e-08 m/s, 6.29e-08 m/s
+     Temperature min/avg/max:            0 K, 0.0008561 K, 0.0034 K
+     Heat fluxes through boundary parts: 0.6257 W, 1.959 W
+     Writing depth average               output-passive_comp/depth_average.gnuplot
+
+*** Timestep 3:  t=8e+12 seconds
+   Solving temperature system... 10 iterations.
+   Solving composition system 1... 18 iterations.
+   Rebuilding Stokes preconditioner...
+   Solving Stokes system... 0 iterations.
+
+   Postprocessing:
+     Writing graphical output:           output-passive_comp/solution-00003
+     RMS, max velocity:                  5.11e-08 m/s, 6.29e-08 m/s
+     Temperature min/avg/max:            0 K, 0.001194 K, 0.004084 K
+     Heat fluxes through boundary parts: 0.8824 W, 2.83 W
+     Writing depth average               output-passive_comp/depth_average.gnuplot
+
+Termination requested by criterion: end time
+
+
++---------------------------------------------+------------+------------+
++---------------------------------+-----------+------------+------------+
++---------------------------------+-----------+------------+------------+
+
