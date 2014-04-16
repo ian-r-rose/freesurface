@@ -187,8 +187,7 @@ namespace aspect
 
         double switch_time;
         double delta_rho;
-   
-        mutable bool done;
+	double switch_angle;
     };
 
   }

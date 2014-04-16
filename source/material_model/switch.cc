@@ -116,7 +116,7 @@ namespace aspect
     {
       if (this->get_time() < switch_time * ( this->convert_output_to_years() ? year_in_seconds : 1.0 ) || std::isnan(this->get_time()))
       {
-        Point<dim> test_p; test_p[0] = 4.5e6; test_p[1]=0.01e6;
+	Point<dim> test_p; test_p[0] = 4.5e6*std::sin(switch_angle*M_PI/180.0) ; test_p[1]=4.5e6*std::cos(switch_angle*M_PI/180.0);
         return reference_rho + delta_rho*( p.distance(test_p) < 2.e5 ? 1.0: 0.0);
       }
       else
@@ -216,6 +216,9 @@ namespace aspect
           prm.declare_entry ("Switch time", "1e6",
                              Patterns::Double (0),
                              "");
+          prm.declare_entry ("Switch angle", "90",
+                              Patterns::Double (0),
+                              "");
         }
         prm.leave_subsection();
       }
@@ -234,6 +237,7 @@ namespace aspect
         {
           delta_rho    = prm.get_double ("Density differential");
           switch_time    = prm.get_double ("Switch time");
+          switch_angle    = prm.get_double ("Switch angle");
         }
         prm.leave_subsection();
       }
@@ -244,8 +248,6 @@ namespace aspect
       k_value = 4.5;
       reference_specific_heat = 1250.0;
       thermal_alpha = 4.0e-5;
-
-      done = false;
     }
   }
 }
