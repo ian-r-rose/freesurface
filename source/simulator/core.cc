@@ -1104,7 +1104,7 @@ namespace aspect
       {
         case NonlinearSolver::IMPES:
         {
-          free_surface_execute ();
+//          free_surface_execute ();
 
           assemble_advection_system (TemperatureOrComposition::temperature());
           build_advection_preconditioner(TemperatureOrComposition::temperature(),
@@ -1131,12 +1131,19 @@ namespace aspect
           // update the Stokes matrix in every time step and so need to set
           // the following flag. if we change the Stokes matrix we also
           // need to update the Stokes preconditioner.
-          if (stokes_matrix_depends_on_solution() == true)
-            rebuild_stokes_matrix = rebuild_stokes_preconditioner = true;
+	  for(unsigned int i=0; i< parameters.max_nonlinear_iterations; ++i)
+          {
+            if (stokes_matrix_depends_on_solution() == true)
+              rebuild_stokes_matrix = rebuild_stokes_preconditioner = true;
 
-          assemble_stokes_system();
-          build_stokes_preconditioner();
-          solve_stokes();
+            assemble_stokes_system();
+            build_stokes_preconditioner();
+            solve_stokes();
+            time_step = std::min (compute_time_step().first,
+                                  parameters.maximum_time_step);
+	    free_surface_execute();
+	  } 
+	  
 
           break;
         }
