@@ -65,3 +65,10 @@ namespace aspect
   }
 }
 
+namespace aspect
+{
+#define INSTANTIATE(dim) \
+  template class Simulator<dim>;
+
+  ASPECT_INSTANTIATE(INSTANTIATE)
+}
