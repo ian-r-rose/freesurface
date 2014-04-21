@@ -253,7 +253,7 @@ namespace aspect
 
           // Filter redundant values if the functionality is available in the current
           // version of deal.II, otherwise use the old data format
-#if DEAL_II_VERSION_MAJOR*100 + DEAL_II_VERSION_MINOR > 800
+/*#if DEAL_II_VERSION_MAJOR*100 + DEAL_II_VERSION_MINOR > 800
           DataOutBase::DataOutFilter   data_filter(DataOutBase::DataOutFilterFlags(true, true));
 
           // If the mesh changed since the last output, make a new mesh file
@@ -269,13 +269,13 @@ namespace aspect
                                                       h5_solution_file_name.c_str(),
                                                       this->get_time(),
                                                       this->get_mpi_communicator());
-#else
+#else*/
           data_out.write_hdf5_parallel((this->get_output_directory()+h5_solution_file_name).c_str(),
                                        this->get_mpi_communicator());
           new_xdmf_entry = data_out.create_xdmf_entry(h5_solution_file_name.c_str(),
                                                       this->get_time(),
                                                       this->get_mpi_communicator());
-#endif
+//#endif
           xdmf_entries.push_back(new_xdmf_entry);
           data_out.write_xdmf_file(xdmf_entries, xdmf_filename.c_str(),
                                    this->get_mpi_communicator());
